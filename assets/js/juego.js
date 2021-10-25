@@ -125,6 +125,8 @@ btnPedir.addEventListener('click', () => {
         console.warn('El Jugador pierde');
         btnPedir.disabled = true;
         btnDetener.disabled = true;
+        turnoComputadora( puntosJugador );
+        
     } else if( puntosJugador === 21 ){
         console.warn('21!!!');
         btnPedir.disabled = true;
@@ -139,3 +141,22 @@ btnDetener.addEventListener('click', () => {
     turnoComputadora( puntosJugador );  
 });
 
+btnNuevo.addEventListener('click', () => {
+    
+    console.clear();
+
+    deck = [];
+    deck = crearDeck();
+
+    puntosHTML[0].innerText = 0;
+    puntosHTML[1].innerText = 0;
+
+    btnPedir.disabled = false;
+    btnDetener.disabled = false;
+
+    puntosJugador = 0;
+    puntosComputadora = 0;
+
+    divComputadoraCarta.innerHTML = '';
+    divJugadorCarta.innerHTML = '';
+});
